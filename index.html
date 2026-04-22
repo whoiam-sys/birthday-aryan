@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Aryan 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: black;
+  color: white;
+}
+
+.screen {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.active { display: flex; }
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+.curtain {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  background: crimson;
+  z-index: 10;
+  transition: 1.5s;
+}
+
+.left { left: 0; }
+.right { right: 0; }
+
+.open-left { transform: translateX(-100%); }
+.open-right { transform: translateX(100%); }
+
+.cake { font-size: 80px; }
+
+.gallery img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div id="screen1" class="screen active">
+  <h1>Would you like to enter the birthday celebration of Aryan? 🎂</h1>
+  <button onclick="start()">Enter</button>
+</div>
+
+<!-- CURTAIN -->
+<div id="leftCurtain" class="curtain left"></div>
+<div id="rightCurtain" class="curtain right"></div>
+
+<!-- SCREEN 2 -->
+<div id="screen2" class="screen">
+  <h1>Make a wish ✨</h1>
+  <div class="cake">🎂</div>
+  <p>17 candles are lit… blow them!</p>
+  <button onclick="blow()">Blow Candle</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div id="screen3" class="screen">
+  <h1>🎉 Congratulations on turning 18! 🎉</h1>
+
+  <p>
+  Happy 18th Birthday Aryan! 🎂💫<br><br>
+  From all the memories we’ve shared to the laughs and moments that made everything feel lighter, 
+  you’ve always been someone truly special. Turning 18 is just the beginning of something big, 
+  and I know you’re going to do amazing things ahead. Stay the same, stay real, and keep shining.  
+  </p>
+
+  <div class="gallery">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+</div>
+
+<script>
+function start() {
+  document.getElementById("screen1").classList.remove("active");
+
+  setTimeout(() => {
+    document.getElementById("leftCurtain").classList.add("open-left");
+    document.getElementById("rightCurtain").classList.add("open-right");
+  }, 200);
+
+  setTimeout(() => {
+    document.getElementById("screen2").classList.add("active");
+  }, 1500);
+}
+
+function blow() {
+  document.getElementById("screen2").classList.remove("active");
+  document.getElementById("screen3").classList.add("active");
+}
+</script>
+
+</body>
+</html>
