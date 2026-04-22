@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Happy Birthday Aryan</title>
+<meta charset="UTF-8">
+<title>Happy Birthday Aryan 🎉</title>
+
 <style>
 body {
   margin:0;
   background:black;
   color:white;
-  text-align:center;
   font-family:Arial;
+  text-align:center;
 }
-.screen { display:none; height:100vh; justify-content:center; align-items:center; flex-direction:column;}
+
+.screen {
+  display:none;
+  height:100vh;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
 .active { display:flex; }
-button { padding:10px 20px; font-size:18px; cursor:pointer; }
+
+button {
+  padding:10px 20px;
+  font-size:18px;
+  cursor:pointer;
+}
 
 .curtain {
   position:fixed;
@@ -22,50 +37,59 @@ button { padding:10px 20px; font-size:18px; cursor:pointer; }
   background:red;
   transition:1s;
 }
+
 .left { left:0; }
 .right { right:0; }
 
 .open-left { transform:translateX(-100%); }
 .open-right { transform:translateX(100%); }
+
+img {
+  width:200px;
+  margin:10px;
+  border-radius:10px;
+}
 </style>
 </head>
 
 <body>
 
-<div id="s1" class="screen active">
-<h1>Enter Aryan's Birthday?</h1>
-<button onclick="start()">Enter</button>
+<div id="screen1" class="screen active">
+  <h1>Would you like to enter Aryan’s birthday? 🎂</h1>
+  <button onclick="start()">Enter</button>
 </div>
 
-<div id="left" class="curtain left"></div>
-<div id="right" class="curtain right"></div>
+<div id="leftCurtain" class="curtain left"></div>
+<div id="rightCurtain" class="curtain right"></div>
 
-<div id="s2" class="screen">
-<h1>Make a wish 🎂</h1>
-<button onclick="next()">Blow Candle</button>
+<div id="screen2" class="screen">
+  <h1>Make a wish 🎂</h1>
+  <button onclick="next()">Blow Candle</button>
 </div>
 
-<div id="s3" class="screen">
-<h1>🎉 Happy 18 Aryan 🎉</h1>
-<p>Your message here ❤️</p>
-<img src="photo1.jpg" width="200">
-<img src="photo2.jpg" width="200">
+<div id="screen3" class="screen">
+  <h1>🎉 Happy 18th Birthday Aryan 🎉</h1>
+  <p>Your message here ❤️</p>
+
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
 </div>
 
 <script>
-function start(){
-  document.getElementById('s1').classList.remove('active');
-  document.getElementById('left').classList.add('open-left');
-  document.getElementById('right').classList.add('open-right');
+function start() {
+  document.getElementById("screen1").classList.remove("active");
 
-  setTimeout(()=>{
-    document.getElementById('s2').classList.add('active');
-  },1000);
+  document.getElementById("leftCurtain").classList.add("open-left");
+  document.getElementById("rightCurtain").classList.add("open-right");
+
+  setTimeout(() => {
+    document.getElementById("screen2").classList.add("active");
+  }, 1000);
 }
 
-function next(){
-  document.getElementById('s2').classList.remove('active');
-  document.getElementById('s3').classList.add('active');
+function next() {
+  document.getElementById("screen2").classList.remove("active");
+  document.getElementById("screen3").classList.add("active");
 }
 </script>
 
