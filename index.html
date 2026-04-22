@@ -19,6 +19,8 @@ body {
   justify-content:center;
   align-items:center;
   flex-direction:column;
+  position: relative;
+  z-index: 20;
 }
 
 .active { display:flex; }
@@ -36,6 +38,7 @@ button {
   height:100%;
   background:red;
   transition:1s;
+  z-index:10;
 }
 
 .left { left:0; }
@@ -59,8 +62,9 @@ img {
   <button onclick="start()">Enter</button>
 </div>
 
-<div id="leftCurtain" class="curtain left"></div>
-<div id="rightCurtain" class="curtain right"></div>
+<!-- Curtains hidden initially -->
+<div id="leftCurtain" class="curtain left" style="display:none;"></div>
+<div id="rightCurtain" class="curtain right" style="display:none;"></div>
 
 <div id="screen2" class="screen">
   <h1>Make a wish 🎂</h1>
@@ -79,6 +83,11 @@ img {
 function start() {
   document.getElementById("screen1").classList.remove("active");
 
+  // show curtains
+  document.getElementById("leftCurtain").style.display = "block";
+  document.getElementById("rightCurtain").style.display = "block";
+
+  // animate curtains
   document.getElementById("leftCurtain").classList.add("open-left");
   document.getElementById("rightCurtain").classList.add("open-right");
 
