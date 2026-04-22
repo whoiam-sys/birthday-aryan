@@ -19,33 +19,17 @@ body {
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  position: relative;
-  z-index: 20;
 }
 
-.active { display:flex; }
+.active {
+  display:flex;
+}
 
 button {
   padding:10px 20px;
   font-size:18px;
   cursor:pointer;
 }
-
-.curtain {
-  position:fixed;
-  top:0;
-  width:50%;
-  height:100%;
-  background:red;
-  transition:1s;
-  z-index:10;
-}
-
-.left { left:0; }
-.right { right:0; }
-
-.open-left { transform:translateX(-100%); }
-.open-right { transform:translateX(100%); }
 
 img {
   width:200px;
@@ -61,10 +45,6 @@ img {
   <h1>Would you like to enter Aryan’s birthday? 🎂</h1>
   <button onclick="start()">Enter</button>
 </div>
-
-<!-- Curtains hidden initially -->
-<div id="leftCurtain" class="curtain left" style="display:none;"></div>
-<div id="rightCurtain" class="curtain right" style="display:none;"></div>
 
 <div id="screen2" class="screen">
   <h1>Make a wish 🎂</h1>
@@ -82,18 +62,7 @@ img {
 <script>
 function start() {
   document.getElementById("screen1").classList.remove("active");
-
-  // show curtains
-  document.getElementById("leftCurtain").style.display = "block";
-  document.getElementById("rightCurtain").style.display = "block";
-
-  // animate curtains
-  document.getElementById("leftCurtain").classList.add("open-left");
-  document.getElementById("rightCurtain").classList.add("open-right");
-
-  setTimeout(() => {
-    document.getElementById("screen2").classList.add("active");
-  }, 1000);
+  document.getElementById("screen2").classList.add("active");
 }
 
 function next() {
